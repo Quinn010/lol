@@ -43307,7 +43307,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			surf: ["8M", "7M", "6M", "5M", "4M"],
 			swagger: ["7M", "6M", "5M", "4M"],
 			swift: ["8M", "4T"],
-			swordsdance: ["8M", "7M", "6M", "5M", "5S0", "4M"],
 			tackle: ["8L1", "7L1", "6L1", "5L1", "4L1"],
 			takedown: ["8L72", "7L15", "6L15", "5L15", "4L15"],
 			toxic: ["7M", "6M", "5M", "4M"],
