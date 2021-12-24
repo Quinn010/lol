@@ -558,6 +558,18 @@ export const Rulesets: {[k: string]: FormatData} = {
 			}
 		},
 	},
+	mmoitemclause:{
+		effectType: 'ValidatorRule',
+		name: 'MMO Item',
+		desc: "Only allows items available in PokeMMO.",
+		onValidateSet(set) {
+			if (!set.item) return;
+			const item = this.dex.items.get(set.item);
+			if(item.gen>5){
+				return item.name + " is not available in PokeMMO";
+			}
+		},
+	},
 	"2abilityclause": {
 		effectType: 'ValidatorRule',
 		name: '2 Ability Clause',
