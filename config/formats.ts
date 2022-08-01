@@ -95,6 +95,21 @@ export const Formats: FormatList = [
 		banlist: ['DUber', 'Power Construct', 'Shadow Tag'],
 	},
 	{
+		name: "[MMO] VGC",
+		desc: `This is indeed VGC`,
+		threads: [
+			`For real though`,
+		],
+		forcedLevel: 50,
+		mod: 'mmo',
+		gameType: 'doubles',
+		teamLength: {
+			validate: [4, 6],
+			battle: 4,
+		},
+		ruleset: ['Standard GBU', 'Dynamax Clause'],
+	},
+	{
 		section: "Sw/Sh Singles",
 	},
 	{
