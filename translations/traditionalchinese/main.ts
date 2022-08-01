@@ -16,8 +16,7 @@ export const translations: Translations = {
 
 		"<strong>Global ranks</strong>": "<strong>全服權限</strong>",
 		"+ <strong>Global Voice</strong> - They can use ! commands like !groups": "+ <strong>全服信任用戶</strong> -可以使用!廣播指令，比如!groups，並可以在限制發言期間發言",
-		"§ <strong>Section Leader</strong> - They oversee rooms in a particular section": "§ <strong>分部頭領</strong> - 負責掌管一個分部的房間",
-		"% <strong>Global Driver</strong> - Like Voice, and they can lock users and check for alts": "% <strong>全服見習管理</strong> - 同信任用戶，並可以鎖定用戶或查看他們的小號 ",
+		"% <strong>Global Driver</strong> - The above, and they can also lock users and check for alts": "% <strong>全服見習管理</strong> - 同上，並可以鎖定用戶或查看他們的小號",
 		"@ <strong>Global Moderator</strong> - The above, and they can globally ban users": "@ <strong>全服管理員</strong> - 同上，並可以將用戶從服務器封禁",
 		"* <strong>Global Bot</strong> - Like Moderator, but makes it clear that this user is a bot": "* <strong>全服機器人</strong> - 跟全服管理員一樣，隻不過是機器",
 		"&amp; <strong>Global Administrator</strong> - They can do anything, like change what this message says and promote users globally": "&amp; <strong>全服總管</strong> - 可以在服務器做任何事，例如修改你現在看到的這條信息",
@@ -37,7 +36,7 @@ export const translations: Translations = {
 		"COMMANDS": "指令",
 		"BATTLE ROOM COMMANDS": "對戰指令",
 		"OPTION COMMANDS": "設置指令",
-		"INFORMATIONAL/RESOURCE COMMANDS": "資訊/資源指令",
+		"INFORMATIONAL/RESOURCE COMMANDS": "信息/資料指令",
 		"DATA COMMANDS": "數據指令",
 		"DRIVER COMMANDS": "見習管理指令",
 		"MODERATOR COMMANDS": "管理員指令",
@@ -49,8 +48,8 @@ export const translations: Translations = {
 		"<strong>warn</strong> - Displays a popup with the rules.": "<strong>warn</strong> - 顯示規則與警告",
 		"<strong>mute</strong> - Mutes a user (makes them unable to talk) for 7 minutes.": "<strong>mute</strong> - 禁言用戶（不能發言）七分鐘。",
 		"<strong>hourmute</strong> - Mutes a user for 60 minutes.": "<strong>hourmute</strong> - 禁言用戶一個小時。",
-		"<strong>ban</strong> - Bans a user (makes them unable to join the room) for 2 days.": "<strong>ban</strong> - 將用戶封鎖（不能進入該房內）兩天。",
-		"<strong>blacklist</strong> - Bans a user for a year.": "<strong>blacklist</strong> - 將用戶封鎖，一年之內不能進入房裡。",
+		"<strong>ban</strong> - Bans a user (makes them unable to join the room) for 2 days.": "<strong>ban</strong> - 將用戶封禁（不能進入該房內）兩天。",
+		"<strong>blacklist</strong> - Bans a user for a year.": "<strong>blacklist</strong> - 將用戶拉黑，一年之內不能進入房裡。",
 
 		"<strong>Global punishments</strong>:": "<strong>全服處罰</strong>:",
 		"<strong>lock</strong> - Locks a user (makes them unable to talk in any rooms or PM non-staff) for 2 days.": "<strong>lock</strong> - 封鎖用戶（無法在任何房內發言或與全服見習管理以下的用戶私信）兩天。",
@@ -69,9 +68,9 @@ export const translations: Translations = {
 		"- /modnote <em>note</em>: add a moderator note that can be read through modlog": "- /modnote <em>信息</em>: 在房間管理檔案中留下信息，隻有見習管理以上能閱讀",
 
 		"<strong>Room moderators (@)</strong> can also use:": "<strong>管理員（@）</strong> 可以使用：",
-		"- /roomban OR /rb <em>username</em>: ban user from the room": "- /roomban 或 /rb <em>用戶名</em>: 將用戶封鎖",
-		"- /roomunban <em>username</em>: unban user from the room": "- /roomunban <em>用戶名</em>: 解除封鎖",
-		"- /roomvoice <em>username</em>: appoint a room voice": "- /roomvoice <em>用戶名</em>: 提升用戶為信任用戶",
+		"- /roomban OR /rb <em>username</em>: ban user from the room": "- /roomban 或 /rb <em>用戶名</em>: 將用戶封禁",
+		"- /roomunban <em>username</em>: unban user from the room": "- /roomunban <em>用戶名</em>: 解除封禁",
+		"- /roomvoice <em>username</em>: appoint a room voice": "- /roomvoice <em>用戶名</em>: 升用戶為信任用戶",
 		"- /roomdevoice <em>username</em>: remove a room voice": "- /roomdevoice <em>用戶名</em>: 移除信任用戶權限",
 		"- /staffintro <em>intro</em>: set the staff introduction that will be displayed for all staff joining the room": "- /staffintro <em>介紹</em>: 設置管理公告，會對進入房間的見習管理或以上人員顯示",
 		"- /roomsettings: change a variety of room settings, namely modchat": "- /roomsettings: 顯示並修改房內的某些設置，比如modchat",
@@ -93,7 +92,7 @@ export const translations: Translations = {
 		"- /tour create <em>format</em>, elimination: create a new single elimination tournament in the current room.": "- /tour create <em>分級</em>, elimination: 在房裡開單淘汰賽（報名）。",
 		"- /tour create <em>format</em>, roundrobin: create a new round robin tournament in the current room.": "- /tour create <em>分級</em>, roundrobin: 在房裡開循環賽（報名）。",
 		"- /tour end: forcibly end the tournament in the current room": "- /tour end: 強行終止房裡的比賽",
-		"- /tour start: start the tournament in the current room": "- /tour start: 報名完後開始比賽",
+		"- /tour start: start the tournament in the current room": "- /tour start: 報名完后開始比賽",
 		"- /tour banlist [pokemon], [talent], [...]: ban moves, abilities, Pokémon or items from being used in a tournament (it must be created first)": "- /tour banlist [寶可夢], [特性], [...]: 在比賽裡禁止某些技能，特性，寶可夢或物品（開比賽前設定）",
 
 		"More detailed help can be found in the <a href=\"https://www.smogon.com/forums/posts/6777489/\">tournaments guide</a>": "需要更多幫助可以閱讀 <a href=\"https://www.smogon.com/forums/posts/6777489/\">比賽指導</a>",
@@ -128,7 +127,6 @@ export const translations: Translations = {
 		"This ${Config.groups[targetUser.group].name} is too busy to answer private messages right now. Please contact a different staff member.": "",
 		"If you need help, try opening a <a href=\"view-help-request\" class=\"button\">help ticket</a>": "",
 		"You are blocking private messages right now.": "",
-		"You are blocking challenges right now.": "",
 
 		"Your message contained banned words in this room.": "發言內容包含了房間內禁止詞匯",
 		"You can't send the same message again so soon.": "同樣的句子不能及時發出",
@@ -144,8 +142,6 @@ export const translations: Translations = {
 		"You are already blocking challenges!": "您已屏蔽挑戰請求",
 		"You are already available for challenges!": "您已能夠接收挑戰請求",
 		"You are available for challenges from now on.": "您從現在開始接收挑戰請求",
-		"You are now blocking challenges, except from staff and ${rank}.": "",
-		"You are now blocking challenges, except from staff and ${status} users.": "",
 
 		"Staff FAQ": "管理FAQ",
 		"You cannot broadcast all FAQs at once.": "無法同時廣播所有FAQ",

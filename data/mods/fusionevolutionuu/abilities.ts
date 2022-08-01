@@ -14,8 +14,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyDamage(damage, target, source, effect) {
 			if (effect?.id === 'aftermath') {
-				this.heal(this.effectState.target.baseMaxhp / 4);
-				this.add('-immune', this.effectState.target, '[from] ability: Porous');
+				this.heal(this.effectData.target.baseMaxhp / 4);
+				this.add('-immune', this.effectData.target, '[from] ability: Porous');
 			}
 		},
 	},
@@ -54,7 +54,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return;
 			}
 
-			const dazzlingHolder = this.effectState.target;
+			const dazzlingHolder = this.effectData.target;
 			if ((source.side === dazzlingHolder.side || move.target === 'all') && move.priority > 0.1) {
 				this.attrLastMove('[still]');
 				this.add('cant', dazzlingHolder, "ability: King's Guard", move, '[of] ' + target);
@@ -80,7 +80,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 			}
 			if (showMsg && !(effect as ActiveMove).secondaries) {
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
 			}
 		},
@@ -88,7 +88,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
 				this.debug('interrupting setStatus with Growth Veil');
 				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
-					const effectHolder = this.effectState.target;
+					const effectHolder = this.effectData.target;
 					this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
 				}
 				return null;
@@ -97,7 +97,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onAllyTryAddVolatile(status, target) {
 			if (target.hasType('Grass') && status.id === 'yawn') {
 				this.debug('Growth Veil blocking yawn');
-				const effectHolder = this.effectState.target;
+				const effectHolder = this.effectData.target;
 				this.add('-block', target, 'ability: Growth Veil', '[of] ' + effectHolder);
 				return null;
 			}
@@ -168,7 +168,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			const newMove = this.dex.getActiveMove(move.id);
 			newMove.hasBounced = true;
 			newMove.pranksterBoosted = false;
-			this.actions.useMove(newMove, this.effectState.target, source);
+			this.actions.useMove(newMove, this.effectData.target, source);
 			return null;
 		},
 		condition: {
@@ -356,7 +356,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Concussion",
 		shortDesc: "Halves the effects of stat changes when taking or dealing damage.",
 		onAnyModifyBoost(boosts, pokemon) {
-			const unawareUser = this.effectState.target;
+			const unawareUser = this.effectData.target;
 			if (unawareUser === pokemon) return;
 			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
 				if (boosts['def']) boosts['def'] = Math.ceil(boosts['def'] / 2);
@@ -385,10 +385,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
+			if (move && (source === this.effectData.target || target === this.effectData.target)) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+			if (move && (source === this.effectData.target || target === this.effectData.target)) {
 				return true;
 			}
 			return accuracy;
@@ -398,11 +398,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Fowl Behavior",
 		shortDesc: "This Pokemon's Sp. Atk is 1.5x, but it can only select the first move it executes.",
 		onStart(pokemon) {
-			pokemon.abilityState.choiceLock = "";
+			pokemon.abilityData.choiceLock = "";
 		},
 		onBeforeMove(pokemon, target, move) {
 			if (move.isZOrMaxPowered || move.id === 'struggle') return;
-			if (pokemon.abilityState.choiceLock && pokemon.abilityState.choiceLock !== move.id) {
+			if (pokemon.abilityData.choiceLock && pokemon.abilityData.choiceLock !== move.id) {
 				// Fails unless ability is being ignored (these events will not run), no PP lost.
 				this.addMove('move', pokemon, move.name);
 				this.attrLastMove('[still]');
@@ -412,8 +412,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			if (pokemon.abilityState.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
-			pokemon.abilityState.choiceLock = move.id;
+			if (pokemon.abilityData.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityData.choiceLock = move.id;
 		},
 		onModifySpAPriority: 5,
 		onModifySpA(atk, pokemon, t, move) {
@@ -433,16 +433,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			return this.chainModify(1.5);
 		},
 		onDisableMove(pokemon) {
-			if (!pokemon.abilityState.choiceLock) return;
+			if (!pokemon.abilityData.choiceLock) return;
 			if (pokemon.volatiles['dynamax']) return;
 			for (const moveSlot of pokemon.moveSlots) {
-				if (moveSlot.id !== pokemon.abilityState.choiceLock) {
-					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+				if (moveSlot.id !== pokemon.abilityData.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectData.sourceEffect);
 				}
 			}
 		},
 		onEnd(pokemon) {
-			pokemon.abilityState.choiceLock = "";
+			pokemon.abilityData.choiceLock = "";
 		},
 	},
 	pillage: {
@@ -451,11 +451,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability') ||
 				pokemon.species.id !== 'yaciancrowned') {
-				this.effectState.gaveUp = true;
+				this.effectData.gaveUp = true;
 			}
 		},
 		onUpdate(pokemon) {
-			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+			if (!pokemon.isStarted || this.effectData.gaveUp) return;
 			const possibleTargets = pokemon.adjacentFoes();
 			while (possibleTargets.length) {
 				let rand = 0;
@@ -670,10 +670,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	noguard: { // Edited for Sturdy Mold
 		onAnyInvulnerabilityPriority: 1,
 		onAnyInvulnerability(target, source, move) {
-			if (move && [source, target].includes(this.effectState.target) && !target.hasAbility('sturdymold')) return 0;
+			if (move && [source, target].includes(this.effectData.target) && !target.hasAbility('sturdymold')) return 0;
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
-			if (move && [source, target].includes(this.effectState.target) && !target.hasAbility('sturdymold')) {
+			if (move && [source, target].includes(this.effectData.target) && !target.hasAbility('sturdymold')) {
 				return true;
 			}
 			return accuracy;
@@ -709,7 +709,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.boost({def: 1}, pokemon);
 		},
 		onAnyModifyDamage(damage, source, target, move) {
-			if (target !== this.effectState.target && target.side === this.effectState.target.side) {
+			if (target !== this.effectData.target && target.side === this.effectData.target.side) {
 				this.debug('Friend Shield weaken');
 				return this.chainModify(0.75);
 			}
@@ -766,7 +766,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Spiky Hold",
 		shortDesc: "Cannot lose held item due to others' attacks; others making contact lose 1/8 max HP.",
 		onTakeItem(item, pokemon, source) {
-			if (this.suppressingAbility(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
+			if (this.suppressingAttackEvents(pokemon) || !pokemon.hp || pokemon.item === 'stickybarb') return;
 			if (!this.activeMove) throw new Error("Battle.activeMove is null");
 			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
 				this.add('-activate', pokemon, 'ability: Spiky Hold');
@@ -872,7 +872,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (target.isSemiInvulnerable()) return;
 			if (target.ignoringItem()) return false;
 			const item = target.getItem();
-			if (!this.singleEvent('TakeItem', item, target.itemState, target, target, move, item)) return false;
+			if (!this.singleEvent('TakeItem', item, target.itemData, target, target, move, item)) return false;
 			if (item) {
 				target.addVolatile('fling');
 				this.damage(source.baseMaxhp / 4, source, target);

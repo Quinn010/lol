@@ -71,7 +71,7 @@ function generateDish(): [string, string[]] {
 	return [dish, ingredients];
 }
 
-export const commands: Chat.ChatCommands = {
+export const commands: ChatCommands = {
 	foodfight(target, room, user) {
 		room = this.requireRoom('thecafe' as RoomID);
 		if (!Object.keys(dishes).length) return this.errorReply("No dishes found. Add some dishes first.");
@@ -102,27 +102,14 @@ export const commands: Chat.ChatCommands = {
 	checkfoodfight(target, room, user) {
 		room = this.requireRoom('thecafe' as RoomID);
 
-		const targetUser = this.getUserOrSelf(target);
-		if (!targetUser) return this.errorReply(`User ${target} not found.`);
+		const targetUser = this.targetUserOrSelf(target, false);
+		if (!targetUser) return this.errorReply(`User ${this.targetUsername} not found.`);
 		const self = targetUser === user;
 		if (!self) this.checkCan('mute', targetUser, room);
-		const foodfight = targetUser.foodfight;
-		if (!foodfight) {
+		if (!targetUser.foodfight) {
 			return this.errorReply(`${self ? `You don't` : `This user doesn't`} have an active Foodfight team.`);
 		}
-		return this.sendReplyBox(<div class="ladder">
-			<table style={{textAlign: 'center'}}>
-				<tr><th colSpan={7} style={{fontSize: '10pt'}}>
-					{self ? `Your` : `${targetUser.name}'s`} dish is: <u>{foodfight.dish}</u>
-				</th></tr>
-				<tr>
-					<th>Team</th>{foodfight.generatedTeam.map(mon => <td><psicon pokemon={mon} /> {mon}</td>)}
-				</tr>
-				<tr>
-					<th>Ingredients</th>{foodfight.ingredients.map(ingredient => <td>{ingredient}</td>)}
-				</tr>
-			</table>
-		</div>);
+		return this.sendReplyBox(`<div class="ladder"><table style="text-align:center;"><tr><th colspan="7" style="font-size:10pt;">${self ? `Your` : `${this.targetUsername}'s`} dish is: <u>${targetUser.foodfight.dish}</u></th></tr><tr><th>Team</th>${targetUser.foodfight.generatedTeam.map(mon => `<td><psicon pokemon="${mon}"/> ${mon}</td>`).join('')}</tr><tr><th>Ingredients</th>${targetUser.foodfight.ingredients.map(ingredient => `<td>${ingredient}</td>`).join('')}</tr></table></div>`);
 	},
 	addingredients: 'adddish',
 	adddish(target, room, user, connection, cmd) {
@@ -186,23 +173,26 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
-export const pages: Chat.PageTable = {
+export const pages: PageTable = {
 	foodfight(query, user, connection) {
 		if (!user.named) return Rooms.RETRY_AFTER_LOGIN;
-		this.title = 'Foodfight';
+		let buf = `|title|Foodfight\n|pagehtml|<div class="pad ladder"><h2>Foodfight Dish list</h2>`;
 		const room = Rooms.get('thecafe');
 		if (!room) return this.errorReply(`Room not found.`);
-		this.checkCan('mute', null, room);
-		const content = Object.values(dishes).map(
-			([dish, ...ingredients]) => <tr><td>{dish}</td><td>{ingredients.join(', ')}</td></tr>
-		).join('');
+		if (!user.can('mute', null, room)) {
+			return buf + `<p>Access denied</p></div>`;
+		}
+		const content = Object.keys(dishes).map(entry => {
+			const [dish, ...ingredients] = dishes[entry];
+			return `<tr><td>${dish}</td><td>${ingredients.join(', ')}</td></tr>`;
+		}).join('');
 
-		return <div class="pad ladder">
-			<h2>Foodfight Dish list</h2>
-			{content ?
-				<table><tr><th><h3>Dishes</h3></th><th><h3>Ingredients</h3></th></tr>{content}</table> :
-				<p>There are no dishes in the database.</p>
-			}
-		</div>;
+		if (!content) {
+			buf += `<p>There are no dishes in the database.</p>`;
+		} else {
+			buf += `<table><tr><th><h3>Dishes</h3></th><th><h3>Ingredients</h3></th></tr>${content}</table>`;
+		}
+		buf += `</div>`;
+		return buf;
 	},
 };

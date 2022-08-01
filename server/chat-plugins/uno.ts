@@ -182,9 +182,6 @@ export class UNO extends Rooms.RoomGame {
 	}
 
 	joinGame(user: User) {
-		if (user.id in this.playerTable) {
-			throw new Chat.ErrorMessage("You have already joined the game of UNO.");
-		}
 		if (this.state === 'signups' && this.addPlayer(user)) {
 			this.sendToRoom(`${user.name} has joined the game of UNO.`);
 			return true;
@@ -602,8 +599,8 @@ class UNOPlayer extends Rooms.RoomGamePlayer {
 	}
 
 	buildHand() {
-		return Utils.sortBy(this.hand, card => [card.color, card.value])
-			.map((card, i) => cardHTML(card, i === this.hand.length - 1));
+		return this.hand.sort((a, b) => a.color.localeCompare(b.color) || a.value.localeCompare(b.value))
+			.map((c, i) => cardHTML(c, i === this.hand.length - 1));
 	}
 
 	sendDisplay() {
@@ -629,7 +626,7 @@ class UNOPlayer extends Rooms.RoomGamePlayer {
 	}
 }
 
-export const commands: Chat.ChatCommands = {
+export const commands: ChatCommands = {
 	uno: {
 		// roomowner commands
 		off: 'disable',
@@ -933,7 +930,7 @@ export const commands: Chat.ChatCommands = {
 	],
 };
 
-export const roomSettings: Chat.SettingsHandler = room => ({
+export const roomSettings: SettingsHandler = room => ({
 	label: "UNO",
 	permission: 'editroom',
 	options: [
