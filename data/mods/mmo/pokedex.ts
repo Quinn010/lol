@@ -1,39 +1,39 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	bulbasaur: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	ivysaur: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	venusaur: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	charmander: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	charmeleon: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	charizard: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	squirtle: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	wartortle: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	blastoise: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	butterfree: {
 		inherit: true,
@@ -49,11 +49,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	pikachu: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	raichu: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	nidoqueen: {
 		inherit: true,
@@ -66,10 +66,10 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	clefairy: {
 		inherit: true,
 		types: ["Normal"],
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	clefable: {
-		inherit: true,
+		inherit: false,
 		types: ["Normal"],
 	},
 	jigglypuff: {
@@ -128,39 +128,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	chikorita: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	bayleef: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	meganium: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	cyndaquil: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	quilava: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	typhlosion: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	totodile: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	croconaw: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	feraligatr: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	igglybuff: {
 		inherit: true,
@@ -181,7 +181,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	cleffa: {
 		inherit: true,
 		types: ["Normal"],
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	ampharos: {
 		inherit: true,
@@ -234,15 +234,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	treecko: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	grovyle: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	sceptile: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	torchic: {
 		inherit: true,
@@ -258,15 +258,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	mudkip: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	marshtomp: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	swampert: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	beautifly: {
 		inherit: true,
@@ -338,39 +338,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	turtwig: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	grotle: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	torterra: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	chimchar: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	monferno: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	infernape: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	piplup: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	prinplup: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	empoleon: {
 		inherit: true,
-		maleOnlyHidden: true,
+		maleOnlyHidden: false,
 	},
 	starly: {
 		inherit: true,
@@ -398,39 +398,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	snivy: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	servine: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	serperior: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	tepig: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	pignite: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	emboar: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	oshawott: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	dewott: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	samurott: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	stoutland: {
 		inherit: true,
