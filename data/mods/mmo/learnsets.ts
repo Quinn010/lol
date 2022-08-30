@@ -4105,7 +4105,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			irontail: ["8V", "7T", "7V", "6T", "5T", "4M", "3M"],
 			megakick: ["7V", "3T"],
 			megapunch: ["7V", "3T"],
-			moonlight: ["8M"],
 			mimic: ["7V", "3T"],
 			mudslap: ["7V", "4T", "3T"],
 			naturalgift: ["4M"],
@@ -16728,7 +16727,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	scizor: {
 		learnset: {
-			closecombat: ["8M"],
 			acrobatics: ["8M", "7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "6S5", "5M", "4M", "3M"],
 			agility: ["8M", "8L1", "7L17", "7V", "6L17", "6S5", "6S6", "5L17", "4L17", "4S1", "3L21"],
@@ -16747,6 +16745,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			crosspoison: ["8M"],
 			curse: ["7V"],
 			cut: ["7V", "6M", "5M", "4M", "3M"],
+			closecombat: ["8M", "7E", "6E", "5E", "5D", "4E"],
 			defog: ["7T", "4M"],
 			detect: ["7V"],
 			doubleedge: ["3T"],
