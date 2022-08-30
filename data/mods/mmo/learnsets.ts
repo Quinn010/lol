@@ -4049,7 +4049,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	nidoqueen: {
 		learnset: {
-			moonlight: ["8E", "7E", "7V", "6E", "5E", "4E", "3E"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			aquatail: ["7T", "6T", "5T", "4T"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
@@ -4075,6 +4074,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			dragonpulse: ["8V", "7T", "6T", "5T", "4M"],
 			dragontail: ["8V", "7M", "6M", "5M"],
 			drillrun: ["8V", "7T", "6T"],
+			moonlight: ["8E", "7E", "7V", "6E", "5E", "4E", "3E"],
 			dynamicpunch: ["7V", "3T"],
 			earthpower: ["7T", "7L43", "6T", "6L43", "5T", "5L43", "4T", "4L43"],
 			earthquake: ["8V", "7M", "7V", "6M", "5M", "4M", "3M"],
