@@ -4049,6 +4049,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	nidoqueen: {
 		learnset: {
+			moonlight: ["8E", "7E", "7V", "6E", "5E", "4E", "3E"],
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
 			aquatail: ["7T", "6T", "5T", "4T"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
@@ -9737,6 +9738,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	golem: {
 		learnset: {
+			rapidspin: ["7E", "7V", "6E", "5E", "4E", "3E"],
 			ancientpower: ["4T"],
 			attract: ["7M", "7V", "6M", "5M", "4M", "3M"],
 			bide: ["8V", "7V"],
@@ -16726,6 +16728,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 	scizor: {
 		learnset: {
+			closecombat: ["8M"],
 			acrobatics: ["8M", "7M", "6M", "5M"],
 			aerialace: ["7M", "6M", "6S5", "5M", "4M", "3M"],
 			agility: ["8M", "8L1", "7L17", "7V", "6L17", "6S5", "6S6", "5L17", "4L17", "4S1", "3L21"],
