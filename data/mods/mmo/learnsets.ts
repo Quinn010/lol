@@ -25388,7 +25388,6 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			stealthrock: ["7T", "6T", "5T", "4M"],
 			steelwing: ["7M", "6M", "4M", "3M"],
 			stoneedge: ["7M", "6M", "5M", "4M"],
-			strength: ["7V", "6M", "5M", "4M", "3M"],
 			strugglebug: ["6M", "5M"],
 			substitute: ["7M", "6M", "5M", "4M", "3T"],
 			sunnyday: ["7M", "7V", "6M", "5M", "4M", "3M"],
