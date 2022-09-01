@@ -33,7 +33,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['Standard', 'Dynamax Clause'],
+		ruleset: ['Standard', 'Dynamax Clause','Baton Pass Clause'],
 		banlist: [
 			'Uber', 'AG', 'Moody', 'Power Construct', 'Shadow Tag', 'Snow Cloak', 'Bright Powder', 'Lax Incense', 'Baton Pass',
 		],
@@ -46,7 +46,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] OU'],
+		ruleset: ['[MMO] OU','Baton Pass Clause'],
 		banlist: ['OU', 'UUBL'],
 	},
 	{
@@ -57,7 +57,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] UU'],
+		ruleset: ['[MMO] UU', 'Baton Pass Clause'],
 		banlist: ['UU', 'NUBL'],
 	},
 	{
@@ -68,7 +68,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] UU'],
+		ruleset: ['[MMO] UU', 'Baton Pass Clause'],
 		banlist: ['UU', 'NUBL'],
 	},
 	{
