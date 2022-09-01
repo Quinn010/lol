@@ -46,7 +46,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] OU','Baton Pass Clause'],
+		ruleset: ['[MMO] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
 	{
@@ -57,7 +57,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] UU', 'Baton Pass Clause'],
+		ruleset: ['[MMO] UU'],
 		banlist: ['UU', 'NUBL'],
 	},
 	{
@@ -68,7 +68,7 @@ export const Formats: FormatList = [
 		],
 		mod: 'mmo',
 		forcedLevel: 50,
-		ruleset: ['[MMO] UU', 'Baton Pass Clause'],
+		ruleset: ['[MMO] UU'],
 		banlist: ['UU', 'NUBL'],
 	},
 	{
