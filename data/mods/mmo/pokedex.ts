@@ -69,7 +69,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		unreleasedHidden: false,
 	},
 	clefable: {
-		inherit: false,
+		inherit: true,
 		types: ["Normal"],
 	},
 	jigglypuff: {
