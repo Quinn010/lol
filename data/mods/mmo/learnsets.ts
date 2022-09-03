@@ -8934,6 +8934,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			lightscreen: ["8M", "8V", "7M", "6M", "5M"],
 			lowkick: ["8M", "8L1", "8V", "7T", "7L1", "7V", "6T", "6L1", "5T", "5L1", "4T", "4L1", "3L1"],
 			lowsweep: ["8M", "8L12", "7M", "7L13", "6M", "6L13", "5M", "5L13"],
+			machpunch: ["8E", "7E", "7V", "6E", "5E", "5D", "4E", "3E"],
 			megakick: ["8M", "7V", "3T"],
 			megapunch: ["8M", "7V", "3T"],
 			metronome: ["8M", "7V", "3T"],
