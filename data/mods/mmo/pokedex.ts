@@ -57,11 +57,11 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	nidoqueen: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	nidoking: {
 		inherit: true,
-		unreleasedHidden: true,
+		unreleasedHidden: false,
 	},
 	clefairy: {
 		inherit: true,
