@@ -41564,6 +41564,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	infernape: {
 		learnset: {
 			acrobatics: ["7M", "7L52", "6M", "6L52", "5M", "5L52"],
+			drainpunch: ["8M", "7T", "6T", "5T", "4M"],
 			aerialace: ["7M", "6M", "5M", "4M"],
 			attract: ["7M", "6M", "5M", "4M"],
 			blastburn: ["7T", "6T", "5T", "4T"],
